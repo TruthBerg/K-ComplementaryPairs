@@ -14,12 +14,10 @@ public class ComplementaryPairs {
 
 	public static void main(String[] args) {
 		int[] a = {1, 3, 5, 7, 10, 12, 14};
-		int k = 17;
+		int k = 15;
 		System.out.println("k = " + k);
 		findPairs(a, k);
-//		StringBuffer allPairs = findPairs(a, k);
-//		System.out.println("Complementary Pairs:\n" + allPairs);
-//		System.out.println("Number of pairs: " + numPairs);
+		System.out.println("Number of pairs: " + numPairs);
 	}
 
 	/**
@@ -30,16 +28,6 @@ public class ComplementaryPairs {
 	 * @param k
 	 * @return the string of k-complementary pairs
 	 */
-//	public static StringBuffer findPairs(int[] a, int k) {
-//		// use a StringBuffer to store the pairs
-//		StringBuffer allPairs = new StringBuffer();
-//		// call recursive find pairs on each integer to find its complement
-//		for (int i = 0; i < a.length - 1; i++) {
-//			allPairs = recursiveFindPairs(a, k, i, i, a.length - 1, allPairs);
-//		}
-//		return allPairs;
-//	}
-	
 	public static void findPairs(int[] a, int k) {
 		// use a StringBuffer to store the pairs
 		// call recursive find pairs on each integer to find its complement
@@ -58,10 +46,23 @@ public class ComplementaryPairs {
 			recursiveFindPairs(a, i+1, j, k);
 		}
 		else {
+			// print pair
 			System.out.println(a[i] + ", " + a[j]);
+			numPairs++;
+			// increase i
 			recursiveFindPairs(a, i+1, j, k);
 		}
 	}
+	
+//	public static StringBuffer findPairs(int[] a, int k) {
+//	// use a StringBuffer to store the pairs
+//	StringBuffer allPairs = new StringBuffer();
+//	// call recursive find pairs on each integer to find its complement
+//	for (int i = 0; i < a.length - 1; i++) {
+//		allPairs = recursiveFindPairs(a, k, i, i, a.length - 1, allPairs);
+//	}
+//	return allPairs;
+//}
 
 	/**
 	 * Adds the k-complementary pair containing integer a[i] (if it exists) to the
